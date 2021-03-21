@@ -31,7 +31,7 @@ namespace testback
             var port = Configuration["DBPORT"] ?? "3306";
             var password = Configuration["DBPASSWORD"] ?? "secret";
 
-            services.AddDbContext<HaandvaerkerContext>(options =>
+            services.AddDbContext<RecipeContext>(options =>
             {
                 string v = $"server={host}; userid=root; pwd={password};port={port}; database=mysqldb";
                 options.UseMySql(v, ServerVersion.AutoDetect(v));

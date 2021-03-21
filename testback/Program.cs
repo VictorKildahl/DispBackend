@@ -29,8 +29,8 @@ namespace testback
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<HaandvaerkerContext>();
-                    HaandvaerkerDbContextExtensions.EnsureDatabaseSeeded(context);
+                    var context = services.GetRequiredService<RecipeContext>();
+                    RecipeDbContextExtensions.EnsureDatabaseSeeded(context);
                 }
                 catch (Exception ex)
                 {
