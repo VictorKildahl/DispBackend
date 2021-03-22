@@ -27,16 +27,17 @@ namespace testback
         {
             services.AddControllers();
 
-            var host = Configuration["DBHOST"] ?? "localhost";
+            var host = Configuration["DBHOST"] ?? "mysql-service";
             var port = Configuration["DBPORT"] ?? "3306";
-            var password = Configuration["DBPASSWORD"] ?? "secret";
+            var password = Configuration["MYSQL_ROOT_PASSWORD"] ?? "secret";
 
             services.AddDbContext<RecipeContext>(options =>
             {
-                string v = $"server={host}; userid=root; pwd={password};port={port}; database=mysqldb";
+                string v = $"server=mysql-service; userid=root; pwd={password};port={port}; database=mysqldb";
                 options.UseMySql(v, ServerVersion.AutoDetect(v));
             });
 
+            //Måske mangler der noget her
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,7 +9,7 @@ using F20ITONK.ASPNETCore.MicroService.ClassLib.Models;
 
 namespace backend
 {
-    [Route("api/[controller]")]
+    [Route("api/recipes")]
     [ApiController]
     public class RecipeController : ControllerBase
     {

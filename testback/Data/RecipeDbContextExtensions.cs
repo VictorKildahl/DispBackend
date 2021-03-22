@@ -1,4 +1,5 @@
 ﻿using F20ITONK.ASPNETCore.MicroService.ClassLib.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace backend.Data
     {
         public static void EnsureDatabaseSeeded(this RecipeContext context)
         {
-            context.Database.EnsureCreated();
+            context.Database.Migrate();
 
             var rp1 = new Recipe()
             {
@@ -22,18 +23,18 @@ namespace backend.Data
 
             var rp2 = new Recipe()
             {
-                RecipeId = 1,
-                Name = "test",
-                Description = "test med kødsovs",
-                Ingrediens = "test",
+                RecipeId = 2,
+                Name = "Pizza",
+                Description = "Pizza med skinke og ost",
+                Ingrediens = "Dej, ost, skinke",
             };
 
             var rp3 = new Recipe()
             {
-                RecipeId = 1,
-                Name = "test2",
-                Description = "test2 med kødsovs",
-                Ingrediens = "test",
+                RecipeId = 3,
+                Name = "Rugbrød",
+                Description = "Rugbrød med hamburgeryg",
+                Ingrediens = "Rugbrød, smør, hamburgeryg",
             };
 
             context.Add(rp1);
